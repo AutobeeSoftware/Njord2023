@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<robot name="trimaran" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find trimaran_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find trimaran_description)/urdf/trimaran.trans" />
+<xacro:include filename="$(find trimaran_description)/urdf/trimaran.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.6648485249889403 0.20461584236479613 0.01115621247362629" rpy="0 0 0"/>
+    <mass value="1001.9699773133253"/>
+    <inertia ixx="39.351246" iyy="103.261717" izz="127.702526" ixy="-5e-06" iyz="6e-06" ixz="4.403436"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://trimaran_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://trimaran_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_1">
+  <inertial>
+    <origin xyz="-0.02255493599752855 -9.039549300760008e-08 -0.09281760405105702" rpy="0 0 0"/>
+    <mass value="1.3337595837347622"/>
+    <inertia ixx="0.017758" iyy="0.017462" izz="0.00084" ixy="0.0" iyz="0.0" ixz="-0.000377"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.015 -0.204616 -0.012382" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://trimaran_description/meshes/motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.015 -0.204616 -0.012382" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://trimaran_description/meshes/motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="0.03641328980881897 3.8321986670086794e-07 -0.03000031530635694" rpy="0 0 0"/>
+    <mass value="3.177755688824798"/>
+    <inertia ixx="0.00309" iyy="0.002364" izz="0.003547" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.103 -0.204615 -0.231701" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://trimaran_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.103 -0.204615 -0.231701" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://trimaran_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="kamera_1">
+  <inertial>
+    <origin xyz="0.0024999999999997247 0.15519997845594385 0.14020238638943866" rpy="0 0 0"/>
+    <mass value="0.05887499999999998"/>
+    <inertia ixx="5e-05" iyy="1e-06" izz="4.9e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-1.103 -0.049416 2e-06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://trimaran_description/meshes/kamera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-1.103 -0.049416 2e-06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://trimaran_description/meshes/kamera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="-0.015 0.204616 0.012382" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="motor_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Rigid 6" type="fixed">
+  <origin xyz="1.103 0.204615 0.231701" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="Rigid 7" type="fixed">
+  <origin xyz="1.103 0.049416 -2e-06" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="kamera_1"/>
+</joint>
+
+</robot>

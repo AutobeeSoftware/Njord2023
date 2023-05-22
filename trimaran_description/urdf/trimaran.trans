@@ -1,12 +1,12 @@
 <?xml version="1.0" ?>
 <robot name="trimaran" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-<transmission name="Revolute 4_tran">
+<transmission name="Revolute4_tran">
   <type>transmission_interface/SimpleTransmission</type>
-  <joint name="Revolute 4">
+  <joint name="Revolute4">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
-  <actuator name="Revolute 4_actr">
+  <actuator name="Revolute4_actr">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>

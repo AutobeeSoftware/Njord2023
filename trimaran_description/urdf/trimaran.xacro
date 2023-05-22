@@ -44,7 +44,8 @@
       <mesh filename="package://trimaran_description/meshes/motor_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
-</link>
+</link>  <xacro:property name="camera_link" value="0.05" /> <!-- Size of square 'camera' box -->
+
 
 <link name="lidar_1">
   <inertial>
@@ -88,7 +89,7 @@
   </collision>
 </link>
 
-<joint name="Revolute 4" type="continuous">
+<joint name="Revolute4" type="continuous">
   <origin xyz="-0.015 0.204616 0.012382" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="motor_1"/>

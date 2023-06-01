@@ -108,7 +108,7 @@
     <parent link="base_link"/>
     <child link="kamera_1"/>
   </joint>
-  <!-- BU KISIM PLANAR HAREKETI SAGLIYOR --> 
+  <!-- BU KISIM PLANAR HAREKETI SAGLIYOR  cmd vel topic ini kullanarak duzlemsel hareket yapilabilir--> 
   <link name="base_footprint">
    <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />

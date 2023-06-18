@@ -62,7 +62,7 @@
       <material name="silver"/>
     </visual>
     <collision>
-      <origin xyz="-1.103 -0.204615 -0.231701" rpy="0 0 0"/>
+      <origin xyz="-1.103 -0.204615 -0.531701" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://trimaran_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -90,7 +90,7 @@
     </collision>
   </link>
 
-  <joint name="Revolute 4" type="continuous">
+  <joint name="Revolute4" type="continuous">
     <origin xyz="-0.015 0.204616 0.012382" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="motor_1"/>

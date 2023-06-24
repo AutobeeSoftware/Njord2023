@@ -1,0 +1,20 @@
+<launch>
+  <arg name="x" default="-5"/>
+  <arg name="y" default="2.5"/>
+  <arg name="z" default="-1.1"/>
+  <arg name="roll" default="0"/>
+  <arg name="pitch" default="0"/>
+  <arg name="yaw" default="0"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(find trimaran_description)/urdf/trimaran.xacro"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model trimaran -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+<node name = "joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+<node name = "robot_state_publisher" pkg = "robot_state_publisher" type= "robot_state_publisher"/> 
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find trimaran_description)/worlds/ocean_waves.world"/>
+    <arg name="paused" value="true"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+</launch>

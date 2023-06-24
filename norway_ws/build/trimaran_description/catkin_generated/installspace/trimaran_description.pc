@@ -1,0 +1,8 @@
+prefix=/home/hakan/norway_ws/install
+
+Name: trimaran_description
+Description: Description of trimaran_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

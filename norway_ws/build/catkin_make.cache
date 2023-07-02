@@ -1,2 +1,2 @@
-ball_detection_pck:teb_local_planner_tutorials:trimaran_description:turtlebot3_simulations/turtlebot3_fake:turtlebot3_simulations/turtlebot3_gazebo:turtlebot3_simulations/turtlebot3_simulations
--DCATKIN_DEVEL_PREFIX=/home/hakan/norway_ws/devel -DCMAKE_INSTALL_PREFIX=/home/hakan/norway_ws/install -G Unix Makefiles
+ball_detection_pck:trimaran_description
+-DCATKIN_DEVEL_PREFIX=/home/autobee2023/norway_ws/devel -DCMAKE_INSTALL_PREFIX=/home/autobee2023/norway_ws/install -G Unix Makefiles

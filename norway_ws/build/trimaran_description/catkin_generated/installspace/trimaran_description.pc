@@ -1,4 +1,4 @@
-prefix=/home/hakan/norway_ws/install
+prefix=/home/autobee2023/norway_ws/install
 
 Name: trimaran_description
 Description: Description of trimaran_description

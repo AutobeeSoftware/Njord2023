@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hakan/norway_ws/src
+CMAKE_SOURCE_DIR = /home/autobee2023/norway_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hakan/norway_ws/build
+CMAKE_BINARY_DIR = /home/autobee2023/norway_ws/build
 
 # Utility rule file for std_srvs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ trimaran_description/CMakeFiles/std_srvs_generate_messages_lisp.dir/build: std_s
 .PHONY : trimaran_description/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
 
 trimaran_description/CMakeFiles/std_srvs_generate_messages_lisp.dir/clean:
-	cd /home/hakan/norway_ws/build/trimaran_description && $(CMAKE_COMMAND) -P CMakeFiles/std_srvs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/autobee2023/norway_ws/build/trimaran_description && $(CMAKE_COMMAND) -P CMakeFiles/std_srvs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : trimaran_description/CMakeFiles/std_srvs_generate_messages_lisp.dir/clean
 
 trimaran_description/CMakeFiles/std_srvs_generate_messages_lisp.dir/depend:
-	cd /home/hakan/norway_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hakan/norway_ws/src /home/hakan/norway_ws/src/trimaran_description /home/hakan/norway_ws/build /home/hakan/norway_ws/build/trimaran_description /home/hakan/norway_ws/build/trimaran_description/CMakeFiles/std_srvs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/autobee2023/norway_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/autobee2023/norway_ws/src /home/autobee2023/norway_ws/src/trimaran_description /home/autobee2023/norway_ws/build /home/autobee2023/norway_ws/build/trimaran_description /home/autobee2023/norway_ws/build/trimaran_description/CMakeFiles/std_srvs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : trimaran_description/CMakeFiles/std_srvs_generate_messages_lisp.dir/depend
 

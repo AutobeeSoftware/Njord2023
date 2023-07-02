@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hakan/norway_ws/src
+CMAKE_SOURCE_DIR = /home/autobee2023/norway_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hakan/norway_ws/build
+CMAKE_BINARY_DIR = /home/autobee2023/norway_ws/build
 
 # Utility rule file for std_msgs_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ ball_detection_pck/CMakeFiles/std_msgs_generate_messages_cpp.dir/build: std_msgs
 .PHONY : ball_detection_pck/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 
 ball_detection_pck/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
-	cd /home/hakan/norway_ws/build/ball_detection_pck && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/autobee2023/norway_ws/build/ball_detection_pck && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : ball_detection_pck/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 
 ball_detection_pck/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend:
-	cd /home/hakan/norway_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hakan/norway_ws/src /home/hakan/norway_ws/src/ball_detection_pck /home/hakan/norway_ws/build /home/hakan/norway_ws/build/ball_detection_pck /home/hakan/norway_ws/build/ball_detection_pck/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/autobee2023/norway_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/autobee2023/norway_ws/src /home/autobee2023/norway_ws/src/ball_detection_pck /home/autobee2023/norway_ws/build /home/autobee2023/norway_ws/build/ball_detection_pck /home/autobee2023/norway_ws/build/ball_detection_pck/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ball_detection_pck/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
 

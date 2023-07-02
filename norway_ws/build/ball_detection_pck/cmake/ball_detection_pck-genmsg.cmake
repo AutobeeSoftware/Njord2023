@@ -2,7 +2,7 @@
 
 message(STATUS "ball_detection_pck: 1 messages, 0 services")
 
-set(MSG_I_FLAGS "-Iball_detection_pck:/home/hakan/norway_ws/src/ball_detection_pck/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Iball_detection_pck:/home/autobee2023/norway_ws/src/ball_detection_pck/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,9 +17,9 @@ add_custom_target(ball_detection_pck_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
+get_filename_component(_filename "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
 add_custom_target(_ball_detection_pck_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ball_detection_pck" "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ball_detection_pck" "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg" ""
 )
 
 #
@@ -29,7 +29,7 @@ add_custom_target(_ball_detection_pck_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(ball_detection_pck
-  "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg"
+  "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ball_detection_pck
@@ -49,7 +49,7 @@ add_custom_target(ball_detection_pck_generate_messages_cpp
 add_dependencies(ball_detection_pck_generate_messages ball_detection_pck_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
+get_filename_component(_filename "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
 add_dependencies(ball_detection_pck_generate_messages_cpp _ball_detection_pck_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -62,7 +62,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS ball_detection_pck_generate_message
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(ball_detection_pck
-  "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg"
+  "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/ball_detection_pck
@@ -82,7 +82,7 @@ add_custom_target(ball_detection_pck_generate_messages_eus
 add_dependencies(ball_detection_pck_generate_messages ball_detection_pck_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
+get_filename_component(_filename "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
 add_dependencies(ball_detection_pck_generate_messages_eus _ball_detection_pck_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -95,7 +95,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS ball_detection_pck_generate_message
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(ball_detection_pck
-  "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg"
+  "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ball_detection_pck
@@ -115,7 +115,7 @@ add_custom_target(ball_detection_pck_generate_messages_lisp
 add_dependencies(ball_detection_pck_generate_messages ball_detection_pck_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
+get_filename_component(_filename "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
 add_dependencies(ball_detection_pck_generate_messages_lisp _ball_detection_pck_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -128,7 +128,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS ball_detection_pck_generate_message
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(ball_detection_pck
-  "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg"
+  "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/ball_detection_pck
@@ -148,7 +148,7 @@ add_custom_target(ball_detection_pck_generate_messages_nodejs
 add_dependencies(ball_detection_pck_generate_messages ball_detection_pck_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
+get_filename_component(_filename "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
 add_dependencies(ball_detection_pck_generate_messages_nodejs _ball_detection_pck_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -161,7 +161,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS ball_detection_pck_generate_message
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(ball_detection_pck
-  "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg"
+  "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ball_detection_pck
@@ -181,7 +181,7 @@ add_custom_target(ball_detection_pck_generate_messages_py
 add_dependencies(ball_detection_pck_generate_messages ball_detection_pck_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
+get_filename_component(_filename "/home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg" NAME_WE)
 add_dependencies(ball_detection_pck_generate_messages_py _ball_detection_pck_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

@@ -13,6 +13,8 @@ from geometry_msgs.msg import Twist
 from ball_detection_pck.msg import ball_location 
 from sensor_msgs.msg import Imu
 from tf.transformations import euler_from_quaternion as efq
+from mavros_msgs.msg import State
+from mavros_msgs.srv import CommandBool, CommandBoolRequest, SetMode, SetModeRequest
 class PIDController: 
    def __init__(self, kp, ki, kd):
       self.kp = kp
@@ -28,7 +30,7 @@ class PIDController:
       self.prev_error = error
       #print "d: ", d ,"__integral:", self.__integral, "kp.ERROR:", self.kp*error 
       return self.__integral + self.kp*error + d
-
+"""
 class Rotate():
    def __init__(self,degree,way,linear):
       #print "Start rotate state"
@@ -39,7 +41,7 @@ class Rotate():
       tw = Twist()
       tw.angular.z = 0
       self.yaw = 0.0
-      cmd_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=1)
+      cmd_pub = rospy.Publisher("/mavros/setpoint_velocity/cmd_vel_unstamped", Twist, queue_size=1)
       imu_sub = rospy.Subscriber("/imu", Imu, self.imu_callback)
       settle_time = 2.0
       angle_region_threshold = 0.2 
@@ -69,13 +71,13 @@ class Rotate():
    def imu_callback(self, data):
       self.yaw = self.get_angle(data)
 
-
+"""
 class Yellow_follow(smach.State):
    def check(self, veri):
       self.Lidar = {
-          "front":  min(min(veri.ranges[330:390]),30),#min(min(veri.ranges[0:30]),30,min(veri.ranges[340:360])), 40 degree
-          "right":  min(min(veri.ranges[117:123]),30),
-          "front-right":min(min(veri.ranges[185:300]),30),
+          "front":  min(min(veri.ranges[250:290]),30),#min(min(veri.ranges[0:30]),30,min(veri.ranges[340:360])), 40 degree
+          "right":  min(min(veri.ranges[80:100]),30),
+          "front-right":min(min(veri.ranges[120:240]),30),
           } 
 
 
@@ -91,7 +93,7 @@ class Yellow_follow(smach.State):
         "front-right":30,
         } 
    def move_to_object(self,data):
-      rospy.Subscriber("/laser/scan", LaserScan, self.check)
+      rospy.Subscriber("/sick_lms_1xx/scan", LaserScan, self.check)
       if not data.isyellowfound:
          self.lost_track = True
          return 
@@ -100,7 +102,7 @@ class Yellow_follow(smach.State):
          return
       tw = Twist()
 
-      target = (-data.yellow_location+500)/700
+      target = (-data.yellow_location+390)/1000
       tw.angular.z = target
       print("Yellow front right: ", self.Lidar["front-right"])
       if self.Lidar["front-right"] < 2:
@@ -109,7 +111,7 @@ class Yellow_follow(smach.State):
          rospy.loginfo(self.a)
          tw.angular.z = 0
       if target < 0.2:
-         tw.linear.x = 0.3
+         tw.linear.x = 0.4
 
       self.cmd_pub.publish(tw)
 
@@ -117,7 +119,7 @@ class Yellow_follow(smach.State):
       self.lost_track = False
       self.centerfound = False
       rospy.wait_for_message("/camera_data", ball_location)
-      self.cmd_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=1)
+      self.cmd_pub = rospy.Publisher("/mavros/setpoint_velocity/cmd_vel_unstamped", Twist, queue_size=1)
       self.image_sub = rospy.Subscriber("/camera_data", ball_location , self.move_to_object)
       rate = rospy.Rate(20.0)
       while not rospy.is_shutdown():
@@ -151,9 +153,9 @@ class MiddleFollow(smach.State):
          return 
 
       tw = Twist()
-      tw.angular.z = -data.middle/700
+      tw.angular.z = -data.middle/1300
             
-      if data.middle < 25:
+      if data.middle < 50:
          tw.linear.x = 0.4
 
       self.cmd_pub.publish(tw)
@@ -164,7 +166,7 @@ class MiddleFollow(smach.State):
       self.black = False
       rospy.loginfo('Executing state middle')
       rospy.wait_for_message("/camera_data", ball_location)
-      self.cmd_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=1)
+      self.cmd_pub = rospy.Publisher("/mavros/setpoint_velocity/cmd_vel_unstamped", Twist, queue_size=1)
       self.image_sub = rospy.Subscriber("/camera_data", ball_location , self.move_to_object)
       rate = rospy.Rate(20.0)
       while not rospy.is_shutdown():
@@ -184,7 +186,7 @@ class Recenter(smach.State):
       self.tw = Twist()
       self.tw.linear.x = 0.4
       self.tw.angular.z = 0
-      self.controller = PIDController(0.5, 0.000, 1.0 / 8.0)
+      self.controller = PIDController(0.6, 0.000,0.1)
       self.centerfound = False
       self.yellow = False
       self.black = False
@@ -200,7 +202,7 @@ class Recenter(smach.State):
       self.angular_z = data.angular_velocity.z
       (self.roll, self.pitch, self.yaw) = efq(orientation_list)
    def center(self,data):
-      rospy.Subscriber("/imu", Imu , self.get_yaw)
+      rospy.Subscriber("/mavros/imu/data", Imu , self.get_yaw)
       self.tw.linear.x = 0.4
       if data.isyellowfound:
          self.yellow = True
@@ -208,24 +210,25 @@ class Recenter(smach.State):
       if data.isblackfound:
          self.black = True
          return
-      if not data.isredfound and data.isgreenfound:
+      if  data.isgreenfound and data.isredfound:
+         self.centerfound =True
+         return
+      elif not data.isredfound and data.isgreenfound:
          if Black.Blackfinished :
-            self.tw.angular.z = self.controller.update(self.angular_z, 0.2,  1.0 / 30.0)
+            self.tw.angular.z =self.controller.update(0, 0.2,  1.0 / 30.0)
             #Rotate(10, 1 ,0.4)
          else:
             #Rotate(10, 2 ,0.4)
-            self.tw.angular.z = self.controller.update(self.angular_z, -0.2, 1.0 / 30.0)
+            self.tw.angular.z = self.controller.update(0, -0.2, 1.0 / 30.0)
       elif not data.isgreenfound and data.isredfound:
          if Black.Blackfinished:
             #Rotate(10,2, 0.4)
-            self.tw.angular.z = self.controller.update(self.angular_z, -0.2, 1.0 / 30.0)
+            self.tw.angular.z =-self.controller.update(0, -0.2, 1.0 / 30.0)
          else:
             #Rotate(10,1, 0.4)
-            self.tw.angular.z = self.controller.update(self.angular_z, 0.2, 1.0 / 30.0)
+            self.tw.angular.z =self.controller.update(0, 0.2, 1.0 / 30.0)
 
-      elif  data.isgreenfound and data.isredfound:
-         self.centerfound =True
-         return
+
       elif not data.isgreenfound and not data.isredfound:
          self.tw.angular.z = 0
       self.cmd_pub.publish(self.tw)
@@ -237,7 +240,7 @@ class Recenter(smach.State):
       self.tw.angular.z = 0
       rospy.loginfo('Executing state Recenter')
       rospy.wait_for_message("/camera_data", ball_location)
-      self.cmd_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=1)
+      self.cmd_pub = rospy.Publisher("/mavros/setpoint_velocity/cmd_vel_unstamped", Twist, queue_size=1)
       self.image_sub = rospy.Subscriber("/camera_data", ball_location , self.center)
       self.tw.linear.x = 0
       rate= rospy.Rate(20)
@@ -264,9 +267,9 @@ class Black(smach.State):
    Blackfinished = False
    def check(self, veri):
       self.Lidar = {
-          "front":  min(min(veri.ranges[330:390]),30),#min(min(veri.ranges[0:30]),30,min(veri.ranges[340:360])), 40 degree
-          "right":  min(min(veri.ranges[90:110]),30),
-          "front-right":min(min(veri.ranges[185:300]),30),
+          "front":  min(min(veri.ranges[250:290]),30),#min(min(veri.ranges[0:30]),30,min(veri.ranges[340:360])), 40 degree
+          "right":  min(min(veri.ranges[80:100]),30),
+          "front-right":min(min(veri.ranges[120:240]),30),
           } 
       
    def __init__(self):
@@ -285,7 +288,7 @@ class Black(smach.State):
 
 
    def move_to_object(self,data):
-      rospy.Subscriber("/laser/scan", LaserScan, self.check)
+      rospy.Subscriber("/sick_lms_1xx/scan", LaserScan, self.check)
       print("basladi")
       if data.isredfound and data.isgreenfound:
          self.centerfound = True
@@ -295,7 +298,7 @@ class Black(smach.State):
       self.tw.angular.z = target
       if target < 0.2:
          print("now i am in the first part") 
-         self.tw.linear.x = 0.3
+         self.tw.linear.x = 0.4
          print("Front right: ", self.Lidar["front-right"])
       if self.Lidar["front-right"] < 3 or self.loopbegin :
          print("front right")
@@ -316,8 +319,8 @@ class Black(smach.State):
    def execute(self , userdata):
       self.centerfound = False
       rospy.wait_for_message("/camera_data", ball_location)
-      self.cmd_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=1)
-      rospy.Subscriber("/laser/scan", LaserScan, self.check)
+      self.cmd_pub = rospy.Publisher("/mavros/setpoint_velocity/cmd_vel_unstamped", Twist, queue_size=1)
+      rospy.Subscriber("/sick_lms_1xx/scan", LaserScan, self.check)
       self.image_sub = rospy.Subscriber("/camera_data", ball_location , self.move_to_object)
       rate = rospy.Rate(20.0)
       while not rospy.is_shutdown():

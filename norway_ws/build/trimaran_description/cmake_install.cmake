@@ -1,8 +1,8 @@
-# Install script for directory: /home/hakan/norway_ws/src/trimaran_description
+# Install script for directory: /home/autobee2023/norway_ws/src/trimaran_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/hakan/norway_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/autobee2023/norway_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,26 +38,26 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/hakan/norway_ws/build/trimaran_description/catkin_generated/installspace/trimaran_description.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/autobee2023/norway_ws/build/trimaran_description/catkin_generated/installspace/trimaran_description.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/trimaran_description/cmake" TYPE FILE FILES
-    "/home/hakan/norway_ws/build/trimaran_description/catkin_generated/installspace/trimaran_descriptionConfig.cmake"
-    "/home/hakan/norway_ws/build/trimaran_description/catkin_generated/installspace/trimaran_descriptionConfig-version.cmake"
+    "/home/autobee2023/norway_ws/build/trimaran_description/catkin_generated/installspace/trimaran_descriptionConfig.cmake"
+    "/home/autobee2023/norway_ws/build/trimaran_description/catkin_generated/installspace/trimaran_descriptionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/trimaran_description" TYPE FILE FILES "/home/hakan/norway_ws/src/trimaran_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/trimaran_description" TYPE FILE FILES "/home/autobee2023/norway_ws/src/trimaran_description/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/trimaran_description" TYPE DIRECTORY FILES
-    "/home/hakan/norway_ws/src/trimaran_description/launch"
-    "/home/hakan/norway_ws/src/trimaran_description/Media"
-    "/home/hakan/norway_ws/src/trimaran_description/worlds"
-    "/home/hakan/norway_ws/src/trimaran_description/models"
+    "/home/autobee2023/norway_ws/src/trimaran_description/launch"
+    "/home/autobee2023/norway_ws/src/trimaran_description/Media"
+    "/home/autobee2023/norway_ws/src/trimaran_description/worlds"
+    "/home/autobee2023/norway_ws/src/trimaran_description/models"
     REGEX "/[^/]*\\~$" EXCLUDE)
 endif()
 

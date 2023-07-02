@@ -7,4 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export PWD='/home/hakan/norway_ws/build'
+export LD_LIBRARY_PATH='/opt/ros/melodic/lib'
+export PKG_CONFIG_PATH='/opt/ros/melodic/lib/pkgconfig'
+export PWD='/home/autobee2023/norway_ws/build'
+export PYTHONPATH='/opt/ros/melodic/lib/python2.7/dist-packages'

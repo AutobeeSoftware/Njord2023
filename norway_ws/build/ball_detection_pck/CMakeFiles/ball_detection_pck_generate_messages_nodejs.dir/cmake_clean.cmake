@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ball_detection_pck_generate_messages_nodejs"
-  "/home/hakan/norway_ws/devel/share/gennodejs/ros/ball_detection_pck/msg/ball_location.js"
+  "/home/autobee2023/norway_ws/devel/share/gennodejs/ros/ball_detection_pck/msg/ball_location.js"
 )
 
 # Per-language clean rules from dependency scanning.

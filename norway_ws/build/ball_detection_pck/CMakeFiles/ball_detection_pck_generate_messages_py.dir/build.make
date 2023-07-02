@@ -43,33 +43,33 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hakan/norway_ws/src
+CMAKE_SOURCE_DIR = /home/autobee2023/norway_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hakan/norway_ws/build
+CMAKE_BINARY_DIR = /home/autobee2023/norway_ws/build
 
 # Utility rule file for ball_detection_pck_generate_messages_py.
 
 # Include the progress variables for this target.
 include ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py.dir/progress.make
 
-ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py: /home/hakan/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/_ball_location.py
-ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py: /home/hakan/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/__init__.py
+ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py: /home/autobee2023/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/_ball_location.py
+ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py: /home/autobee2023/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/__init__.py
 
 
-/home/hakan/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/_ball_location.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
-/home/hakan/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/_ball_location.py: /home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/hakan/norway_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG ball_detection_pck/ball_location"
-	cd /home/hakan/norway_ws/build/ball_detection_pck && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/hakan/norway_ws/src/ball_detection_pck/msg/ball_location.msg -Iball_detection_pck:/home/hakan/norway_ws/src/ball_detection_pck/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p ball_detection_pck -o /home/hakan/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg
+/home/autobee2023/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/_ball_location.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/autobee2023/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/_ball_location.py: /home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/autobee2023/norway_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG ball_detection_pck/ball_location"
+	cd /home/autobee2023/norway_ws/build/ball_detection_pck && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/autobee2023/norway_ws/src/ball_detection_pck/msg/ball_location.msg -Iball_detection_pck:/home/autobee2023/norway_ws/src/ball_detection_pck/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p ball_detection_pck -o /home/autobee2023/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg
 
-/home/hakan/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
-/home/hakan/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/__init__.py: /home/hakan/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/_ball_location.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/hakan/norway_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for ball_detection_pck"
-	cd /home/hakan/norway_ws/build/ball_detection_pck && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/hakan/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg --initpy
+/home/autobee2023/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/autobee2023/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/__init__.py: /home/autobee2023/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/_ball_location.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/autobee2023/norway_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for ball_detection_pck"
+	cd /home/autobee2023/norway_ws/build/ball_detection_pck && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/autobee2023/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg --initpy
 
 ball_detection_pck_generate_messages_py: ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py
-ball_detection_pck_generate_messages_py: /home/hakan/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/_ball_location.py
-ball_detection_pck_generate_messages_py: /home/hakan/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/__init__.py
+ball_detection_pck_generate_messages_py: /home/autobee2023/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/_ball_location.py
+ball_detection_pck_generate_messages_py: /home/autobee2023/norway_ws/devel/lib/python2.7/dist-packages/ball_detection_pck/msg/__init__.py
 ball_detection_pck_generate_messages_py: ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py.dir/build.make
 
 .PHONY : ball_detection_pck_generate_messages_py
@@ -80,10 +80,10 @@ ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py.dir/build:
 .PHONY : ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py.dir/build
 
 ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py.dir/clean:
-	cd /home/hakan/norway_ws/build/ball_detection_pck && $(CMAKE_COMMAND) -P CMakeFiles/ball_detection_pck_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/autobee2023/norway_ws/build/ball_detection_pck && $(CMAKE_COMMAND) -P CMakeFiles/ball_detection_pck_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py.dir/clean
 
 ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py.dir/depend:
-	cd /home/hakan/norway_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hakan/norway_ws/src /home/hakan/norway_ws/src/ball_detection_pck /home/hakan/norway_ws/build /home/hakan/norway_ws/build/ball_detection_pck /home/hakan/norway_ws/build/ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/autobee2023/norway_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/autobee2023/norway_ws/src /home/autobee2023/norway_ws/src/ball_detection_pck /home/autobee2023/norway_ws/build /home/autobee2023/norway_ws/build/ball_detection_pck /home/autobee2023/norway_ws/build/ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ball_detection_pck/CMakeFiles/ball_detection_pck_generate_messages_py.dir/depend
 

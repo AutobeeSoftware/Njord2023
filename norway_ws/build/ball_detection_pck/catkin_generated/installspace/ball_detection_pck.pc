@@ -1,4 +1,4 @@
-prefix=/home/hakan/norway_ws/install
+prefix=/home/autobee2023/norway_ws/install
 
 Name: ball_detection_pck
 Description: Description of ball_detection_pck

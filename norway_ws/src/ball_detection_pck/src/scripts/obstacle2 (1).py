@@ -329,7 +329,7 @@ class Wait(smach.State):
             return "FINISHED"
          rate.sleep()
 
-      return "ERROR"
+      return "ERROR "
 
 
       
